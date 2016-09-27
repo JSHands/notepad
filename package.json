@@ -1,0 +1,42 @@
+{
+  "name": "notepad",
+  "version": "1.0.0",
+  "description": "A note taking web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JSHands/notepad.git"
+  },
+  "keywords": [
+    "notepad",
+    "note",
+    "taking",
+    "notes",
+    "angular",
+    "jshands"
+  ],
+  "author": "DecaHub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JSHands/notepad/issues"
+  },
+  "homepage": "https://github.com/JSHands/notepad#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "connect": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.2.0",
+    "nodemon": "^1.10.2",
+    "serve-static": "^1.11.1",
+    "wiredep": "^4.0.0"
+  }
+}
