@@ -3,7 +3,6 @@
 let gulp = require('gulp');
 let nodemon = require('gulp-nodemon');
 let injector = require('gulp-inject');
-let livereload = require('gulp-livereload');
 let browserSync = require('browser-sync').create();
 
 let connect = require('connect');
@@ -20,23 +19,19 @@ gulp.task('inject', () => {
 		directory: 'app/lib',
 	};
 	
+	let injectOptions = {
+		ignorePath: 'app/'
+	};
+	
 	let injectSrc = gulp.src(['app/css/*.css', 'app/js/*.js'], {
 		read: false
 	});
 	
 	return gulp.src('app/*.html').
 		pipe(wiredep(options)).
-		pipe(injector(injectSrc)).
+		pipe(injector(injectSrc, injectOptions)).
 		pipe(gulp.dest('app'));
 });
-
-// gulp.task('server', () => {
-// 	return connect().use(serve(__dirname)).
-// 		listen(8080).
-// 		on('listening', () => {
-// 			console.log('Server running on Port 8080');
-// 	})
-// });
 
 gulp.task('js-watch', ['inject'], () => {
 	browserSync.reload();
@@ -62,4 +57,4 @@ gulp.task('serve', () => {
 	gulp.watch(['!app/lib','app/**/*.html'], ['html-watch']);
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['inject', 'serve']);
