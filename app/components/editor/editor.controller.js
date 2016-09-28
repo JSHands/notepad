@@ -20,6 +20,10 @@
 			}
 		};
 		
+		$scope.switchEditMode = () => {
+			$scope.editing = !$scope.editing;
+		};
+		
 		$scope.save = () => {
 			
 			console.log("Saving note...");
