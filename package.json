@@ -25,18 +25,13 @@
   },
   "homepage": "https://github.com/JSHands/notepad#readme",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0"
   },
   "devDependencies": {
     "browser-sync": "^2.16.0",
-    "connect": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-inject": "^4.1.0",
-    "gulp-livereload": "^3.8.1",
     "gulp-nodemon": "^2.2.0",
     "nodemon": "^1.10.2",
-    "serve-static": "^1.11.1",
     "wiredep": "^4.0.0"
   }
 }
