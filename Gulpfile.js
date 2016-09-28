@@ -57,4 +57,18 @@ gulp.task('serve', () => {
 	gulp.watch(['!app/lib','app/**/*.html'], ['html-watch']);
 });
 
-gulp.task('default', ['inject', 'serve']);
+gulp.task('nodemon', (cb) => {
+	let started = false;
+	
+	return nodemon({
+		script: 'server.js'
+	}).
+		on('start', () => {
+			if (!started) {
+				cb();
+				started = true;
+			}
+	});
+});
+
+gulp.task('default', ['inject', 'nodemon', 'serve']);
