@@ -23,7 +23,7 @@ gulp.task('inject', () => {
 		ignorePath: 'app/'
 	};
 	
-	let injectSrc = gulp.src(['app/css/*.css', 'app/js/*.js'], {
+	let injectSrc = gulp.src(['!app/lib/**', '!app/lib/', 'app/**/*.css', 'app/**/*.js'], {
 		read: false
 	});
 	
