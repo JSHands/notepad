@@ -71,4 +71,4 @@ gulp.task('nodemon', (cb) => {
 	});
 });
 
-gulp.task('default', ['inject', 'nodemon', 'serve']);
+gulp.task('default', ['inject', 'serve']);

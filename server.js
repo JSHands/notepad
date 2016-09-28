@@ -31,8 +31,47 @@ app.get('/notes', (req,  res) => {
 	});
 });
 
+// Update a note
+
+app.put('/notes/:id', (req, res) => {
+	fs.readFile(__dirname + '/data/notes.json', 'utf8', (err, data) => {
+		
+		console.log("putting note!");
+		
+		if (err) {
+			res.status(500).end();
+			return console.log(err);
+		}
+		
+		try {
+			data = JSON.parse(data);
+		} catch (e) {
+			res.status(500).end();
+			return console.log(e);
+		}
+		
+		data.forEach((note, index) => {
+			if (note.id == req.params.id) {
+				data[index] = req.body;
+			}
+		});
+		
+		fs.writeFile(__dirname + '/data/notes.json', JSON.stringify(data), (err) => {
+			if (err) {
+				res.status(500).end();
+				return console.log(err);
+			}
+			
+			res.status(200).send(data);
+			
+		});
+		
+	});
+	
+});
+
+
+
 app.listen(5000, () => {
 	console.log('Server started. Open http://localhost:5000 in your browser.');
 });
-
-console.log("YAYlol");
