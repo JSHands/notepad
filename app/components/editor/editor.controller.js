@@ -2,7 +2,7 @@
 	
 	"use strict";
 	
-	angular.module("app").controller('EditorController', ['$scope', '$http', 'Notes', ($scope, $http, Notes) => {
+	angular.module("app").controller('EditorController', ['$scope', 'Notes', ($scope, Notes) => {
 		
 		$scope.editing = true;
 		$scope.notes = 	$scope.notes = Notes.query();
